@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laughing Waffle Soccer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="game">
+      <header>
+        <h1>Laughing Waffle Soccer</h1>
+        <p>Score goals by kicking the ball into the opponent's goal.</p>
+      </header>
+
+      <section class="controls" aria-label="Game controls">
+        <div class="control-block">
+          <h2>Player One</h2>
+          <p>Move: W/A/S/D</p>
+          <p>Kick: Space</p>
+        </div>
+        <div class="control-block">
+          <h2>Player Two / AI</h2>
+          <p>Move: I/J/K/L</p>
+          <p>Kick: Right Shift</p>
+        </div>
+        <label class="toggle">
+          <input id="two-player-toggle" type="checkbox" />
+          <span class="toggle-text">Two-Player Mode</span>
+        </label>
+      </section>
+
+      <div class="scoreboard">
+        <span>Player One: <strong id="score-one">0</strong></span>
+        <span>Player Two: <strong id="score-two">0</strong></span>
+      </div>
+
+      <canvas id="pitch" width="860" height="460"></canvas>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

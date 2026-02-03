@@ -1,0 +1,93 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f5f5f7;
+  color: #1f1f1f;
+}
+
+.game {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+header h1 {
+  margin-bottom: 4px;
+}
+
+header p {
+  margin-top: 0;
+  color: #555;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.control-block {
+  min-width: 180px;
+}
+
+.control-block h2 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+
+.control-block p {
+  margin: 0;
+  color: #444;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid #e0e0e0;
+  background: #f7f7f7;
+  font-weight: 600;
+  color: #333;
+}
+
+.toggle input {
+  width: 18px;
+  height: 18px;
+}
+
+.toggle-text {
+  font-size: 0.95rem;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-weight: 600;
+  background: #e9f5ff;
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+#pitch {
+  width: 100%;
+  border-radius: 12px;
+  background: #1c8a3a;
+  border: 4px solid #176e30;
+  box-shadow: inset 0 0 0 4px #f0f7f1;
+}
