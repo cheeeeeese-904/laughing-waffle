@@ -1,0 +1,59 @@
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: #f4f6f8;
+  color: #1b1b1b;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scoreboard {
+  background: #ffffff;
+  padding: 2rem 3rem;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  max-width: 480px;
+}
+
+.ticker {
+  margin: 1.5rem 0;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+.score {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1rem;
+  background: #e8f5ff;
+  border-radius: 12px;
+}
+
+button {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #1e88e5;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1565c0;
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laughing Waffle Soccer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="scoreboard">
+      <h1>Laughing Waffle Soccer</h1>
+      <p id="ticker" class="ticker" aria-live="polite">
+        Kickoff: The match is about to begin.
+      </p>
+      <div id="score" class="score" aria-live="assertive">
+        <span class="visually-hidden">Score update:</span>
+        <span class="score-text">Home 0 - 0 Away</span>
+      </div>
+      <button id="simulate" type="button">Simulate play</button>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
