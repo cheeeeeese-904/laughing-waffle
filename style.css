@@ -1,0 +1,147 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background-color: #f3f5f9;
+  color: #1c1f2a;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+.game {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(12, 16, 38, 0.12);
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+}
+
+.game__header h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+}
+
+.game__subtitle {
+  margin: 0 0 24px;
+  color: #5c647a;
+}
+
+.game__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat {
+  background: #f6f7fb;
+  padding: 16px;
+  border-radius: 14px;
+}
+
+.stat__label {
+  display: block;
+  font-size: 0.85rem;
+  color: #5a6275;
+  margin-bottom: 8px;
+}
+
+.stat__value {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.primary-button,
+.secondary-button {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primary-button {
+  background: #1f73ff;
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(31, 115, 255, 0.3);
+}
+
+.secondary-button {
+  background: #e3e7f2;
+  color: #273049;
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+  transform: translateY(-1px);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 20;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 24, 39, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.modal__card {
+  position: relative;
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 20px;
+  max-width: 420px;
+  width: min(90vw, 420px);
+  box-shadow: 0 25px 60px rgba(12, 16, 38, 0.3);
+  text-align: left;
+  z-index: 1;
+}
+
+.modal__subtitle {
+  margin-top: 4px;
+  color: #5c647a;
+}
+
+.modal__stats {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0 24px;
+}
+
+.modal__stat {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  color: #1f2434;
+}
+
+.modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laughing Waffle Soccer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="game">
+      <header class="game__header">
+        <h1>Laughing Waffle Soccer</h1>
+        <p class="game__subtitle">Timer-based match demo</p>
+      </header>
+
+      <section class="game__stats">
+        <div class="stat">
+          <span class="stat__label">Time Left</span>
+          <span class="stat__value" id="timer">10</span>
+        </div>
+        <div class="stat">
+          <span class="stat__label">Score</span>
+          <span class="stat__value" id="score">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat__label">Shots</span>
+          <span class="stat__value" id="shots">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat__label">Touches</span>
+          <span class="stat__value" id="touches">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat__label">Top Speed</span>
+          <span class="stat__value" id="top-speed">0 mph</span>
+        </div>
+      </section>
+
+      <button class="primary-button" id="manual-score">Take a Shot</button>
+    </main>
+
+    <div class="modal hidden" id="game-modal" aria-hidden="true">
+      <div class="modal__backdrop"></div>
+      <div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <h2 id="modal-title">Time's Up!</h2>
+        <p class="modal__subtitle">Here is your final match recap.</p>
+        <div class="modal__stats">
+          <div class="modal__stat">
+            <span>Final Score</span>
+            <strong id="modal-score">0</strong>
+          </div>
+          <div class="modal__stat">
+            <span>Shots</span>
+            <strong id="modal-shots">0</strong>
+          </div>
+          <div class="modal__stat">
+            <span>Touches</span>
+            <strong id="modal-touches">0</strong>
+          </div>
+          <div class="modal__stat">
+            <span>Top Speed</span>
+            <strong id="modal-top-speed">0 mph</strong>
+          </div>
+        </div>
+        <div class="modal__actions">
+          <button class="primary-button" id="restart-game">Restart</button>
+          <button class="secondary-button" id="close-modal">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
