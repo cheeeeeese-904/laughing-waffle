@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laughing Waffle - Soccer Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hud">
+      <div class="hud__item" id="stamina-orb-status">
+        <span class="hud__label">Stamina Orb</span>
+        <span class="hud__icon" aria-hidden="true"></span>
+        <span class="hud__value" id="stamina-orb-timer">Ready</span>
+      </div>
+      <div class="hud__item">
+        <span class="hud__label">Stamina</span>
+        <span class="hud__value" id="stamina-value">100</span>
+      </div>
+    </header>
+
+    <main>
+      <canvas id="field" width="800" height="480" aria-label="Soccer field"></canvas>
+      <p class="hint">Use arrow keys to move the player and collect the stamina orb.</p>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
