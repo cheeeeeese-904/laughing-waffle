@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Waffle Soccer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <p class="badge">Season Mode • Friendly #12</p>
+        <h1>Waffle Soccer</h1>
+        <p>Dribble, pass, and score in this tiny soccer playground. Use arrow keys or WASD to move and press space to kick.</p>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <span class="label">Crowd</span>
+          <strong id="crowd">18,420</strong>
+        </div>
+        <div>
+          <span class="label">Wind</span>
+          <strong id="wind">Breezy</strong>
+        </div>
+        <div>
+          <span class="label">Momentum</span>
+          <strong id="momentum">Even</strong>
+        </div>
+      </div>
+    </header>
+
+    <section class="game-card">
+      <div class="scoreboard">
+        <div class="team">
+          <span class="label">Blue</span>
+          <span id="score-left" class="score">0</span>
+        </div>
+        <div class="timer">
+          <span id="timer">60</span>
+          <span class="timer-unit">sec</span>
+        </div>
+        <div class="team">
+          <span class="label">Coral</span>
+          <span id="score-right" class="score">0</span>
+        </div>
+      </div>
+
+      <div class="hud">
+        <div class="meter">
+          <span class="label">Stamina</span>
+          <div class="bar"><div id="stamina-bar" class="bar-fill"></div></div>
+        </div>
+        <div class="meter">
+          <span class="label">Power Play</span>
+          <div class="bar power"><div id="power-bar" class="bar-fill"></div></div>
+        </div>
+        <div class="meter">
+          <span class="label">Possession</span>
+          <div class="bar possession"><div id="possession-bar" class="bar-fill"></div></div>
+        </div>
+      </div>
+
+      <canvas id="pitch" width="860" height="520" aria-label="Soccer pitch" role="img"></canvas>
+
+      <div class="controls">
+        <div class="button-row">
+          <button id="reset" type="button">Reset Match</button>
+          <button id="toggle" type="button">Pause</button>
+          <button id="shuffle" type="button">Shuffle Weather</button>
+        </div>
+        <label class="select">
+          Match length
+          <select id="length">
+            <option value="60">60 sec</option>
+            <option value="90">90 sec</option>
+            <option value="120">120 sec</option>
+            <option value="180">180 sec</option>
+          </select>
+        </label>
+        <p>Arrow keys/WASD to move • Space to kick • Shift to sprint • Tap space near a power-up to collect it</p>
+      </div>
+    </section>
+
+    <section class="side-panels">
+      <article class="panel">
+        <h2>Match Report</h2>
+        <ul id="event-log" class="event-log" aria-live="polite"></ul>
+      </article>
+      <article class="panel">
+        <h2>Playbook</h2>
+        <ul class="playbook">
+          <li>Dribble to the center circle to boost possession.</li>
+          <li>Power-ups spawn near midfield every 12 seconds.</li>
+          <li>Wind pushes long shots—time your kicks with the gusts.</li>
+          <li>Stamina recharges when you ease off sprinting.</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <h2>Starters</h2>
+        <div class="lineup">
+          <div>
+            <span class="label">Blue XI</span>
+            <strong>Nova • Pixel • Echo</strong>
+          </div>
+          <div>
+            <span class="label">Coral XI</span>
+            <strong>Flux • Ember • Tide</strong>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
