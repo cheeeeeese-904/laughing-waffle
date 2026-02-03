@@ -59,6 +59,15 @@
           <span class="label">Possession</span>
           <div class="bar possession"><div id="possession-bar" class="bar-fill"></div></div>
         </div>
+        <div class="meter">
+          <span class="label">Combo</span>
+          <div class="bar combo"><div id="combo-bar" class="bar-fill"></div></div>
+        </div>
+      </div>
+
+      <div class="ticker">
+        <span class="label">Live ticker</span>
+        <p id="ticker-text">Warmups finished. Both teams ready for kickoff.</p>
       </div>
 
       <canvas id="pitch" width="860" height="520" aria-label="Soccer pitch" role="img"></canvas>
@@ -68,6 +77,7 @@
           <button id="reset" type="button">Reset Match</button>
           <button id="toggle" type="button">Pause</button>
           <button id="shuffle" type="button">Shuffle Weather</button>
+          <button id="cones" type="button">Toggle Cones</button>
         </div>
         <label class="select">
           Match length
@@ -86,6 +96,17 @@
       <article class="panel">
         <h2>Match Report</h2>
         <ul id="event-log" class="event-log" aria-live="polite"></ul>
+      </article>
+      <article class="panel">
+        <h2>Match Stats</h2>
+        <div class="stats-grid">
+          <div><span class="label">Blue Shots</span><strong id="blue-shots">0</strong></div>
+          <div><span class="label">Coral Shots</span><strong id="coral-shots">0</strong></div>
+          <div><span class="label">Blue Touches</span><strong id="blue-touches">0</strong></div>
+          <div><span class="label">Coral Touches</span><strong id="coral-touches">0</strong></div>
+          <div><span class="label">Top Speed</span><strong id="top-speed">0.0</strong></div>
+          <div><span class="label">Set Pieces</span><strong id="set-pieces">0</strong></div>
+        </div>
       </article>
       <article class="panel">
         <h2>Playbook</h2>

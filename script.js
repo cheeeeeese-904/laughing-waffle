@@ -11,10 +11,19 @@ const lengthSelect = document.getElementById("length");
 const staminaBar = document.getElementById("stamina-bar");
 const powerBar = document.getElementById("power-bar");
 const possessionBar = document.getElementById("possession-bar");
+const comboBar = document.getElementById("combo-bar");
+const conesButton = document.getElementById("cones");
 const crowdDisplay = document.getElementById("crowd");
 const windDisplay = document.getElementById("wind");
 const momentumDisplay = document.getElementById("momentum");
 const eventLog = document.getElementById("event-log");
+const tickerText = document.getElementById("ticker-text");
+const blueShots = document.getElementById("blue-shots");
+const coralShots = document.getElementById("coral-shots");
+const blueTouches = document.getElementById("blue-touches");
+const coralTouches = document.getElementById("coral-touches");
+const topSpeed = document.getElementById("top-speed");
+const setPieces = document.getElementById("set-pieces");
 
 const pitch = {
   width: canvas.width,
@@ -36,6 +45,15 @@ const state = {
   powerActive: 0,
   possession: 50,
   lastPowerSpawn: 0,
+  combo: 0,
+  comboTimer: 0,
+  conesActive: true,
+  blueShots: 0,
+  coralShots: 0,
+  blueTouches: 0,
+  coralTouches: 0,
+  topSpeed: 0,
+  setPieces: 0,
 };
 
 const player = {
@@ -63,6 +81,12 @@ const ball = {
   vy: 0,
 };
 
+const cones = [
+  { x: pitch.width / 2 - 140, y: pitch.height / 2 - 120, radius: 12 },
+  { x: pitch.width / 2 + 80, y: pitch.height / 2 + 140, radius: 12 },
+  { x: pitch.width / 2 + 160, y: pitch.height / 2 - 90, radius: 12 },
+];
+
 const powerUp = {
   active: false,
   x: pitch.width / 2,
@@ -86,6 +110,7 @@ const addEvent = (message) => {
   eventLog.innerHTML = events
     .map((event) => `<li><strong>${event.time}</strong> — ${event.message}</li>`)
     .join("");
+  tickerText.textContent = message;
 };
 
 const resetPositions = () => {
@@ -105,6 +130,14 @@ const resetGame = () => {
   state.rightScore = 0;
   state.timer = state.matchLength;
   state.running = true;
+  state.combo = 0;
+  state.comboTimer = 0;
+  state.blueShots = 0;
+  state.coralShots = 0;
+  state.blueTouches = 0;
+  state.coralTouches = 0;
+  state.topSpeed = 0;
+  state.setPieces = 0;
   resetPositions();
   addEvent("Kickoff! The crowd is roaring.");
   updateScoreboard();
@@ -117,6 +150,13 @@ const updateScoreboard = () => {
   staminaBar.style.width = `${state.stamina}%`;
   powerBar.style.width = `${state.powerActive > 0 ? (state.powerActive / 6) * 100 : state.powerCharge}%`;
   possessionBar.style.width = `${state.possession}%`;
+  comboBar.style.width = `${state.combo}%`;
+  blueShots.textContent = state.blueShots;
+  coralShots.textContent = state.coralShots;
+  blueTouches.textContent = state.blueTouches;
+  coralTouches.textContent = state.coralTouches;
+  topSpeed.textContent = state.topSpeed.toFixed(1);
+  setPieces.textContent = state.setPieces;
 };
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
@@ -172,7 +212,14 @@ const kickBall = (kicker, force) => {
     ball.vx = Math.cos(angle) * force * powerBoost;
     ball.vy = Math.sin(angle) * force * powerBoost;
     if (kicker === player) {
+      state.blueShots += 1;
+      state.blueTouches += 1;
+      state.combo = Math.min(100, state.combo + 18);
+      state.comboTimer = 2.2;
       addEvent("Blue launches a laser kick!");
+    } else {
+      state.coralShots += 1;
+      state.coralTouches += 1;
     }
   }
 };
@@ -205,6 +252,9 @@ const updateBall = () => {
     ball.vx *= -0.8;
     ball.x = clamp(ball.x, pitch.margin + ball.radius, pitch.width - pitch.margin - ball.radius);
   }
+
+  const speed = Math.hypot(ball.vx, ball.vy);
+  state.topSpeed = Math.max(state.topSpeed, speed);
 };
 
 const updatePowerUp = (timestamp) => {
@@ -231,6 +281,33 @@ const updatePowerUp = (timestamp) => {
   } else {
     state.powerCharge = Math.min(100, state.powerCharge + 0.08);
   }
+};
+
+const updateCombo = (delta) => {
+  if (state.comboTimer > 0) {
+    state.comboTimer = Math.max(0, state.comboTimer - delta);
+  } else {
+    state.combo = Math.max(0, state.combo - delta * 14);
+  }
+};
+
+const resolveConeCollisions = () => {
+  if (!state.conesActive) return;
+  cones.forEach((cone) => {
+    const dx = ball.x - cone.x;
+    const dy = ball.y - cone.y;
+    const dist = Math.hypot(dx, dy);
+    if (dist < ball.radius + cone.radius) {
+      const angle = Math.atan2(dy, dx);
+      const push = ball.radius + cone.radius - dist;
+      ball.x += Math.cos(angle) * push;
+      ball.y += Math.sin(angle) * push;
+      ball.vx += Math.cos(angle) * 1.2;
+      ball.vy += Math.sin(angle) * 1.2;
+      state.setPieces += 1;
+      addEvent("Ball ricochets off a training cone!");
+    }
+  });
 };
 
 const resolveCollisions = () => {
@@ -324,6 +401,19 @@ const drawBall = () => {
   context.stroke();
 };
 
+const drawCones = () => {
+  if (!state.conesActive) return;
+  cones.forEach((cone) => {
+    context.beginPath();
+    context.fillStyle = "rgba(255, 255, 255, 0.8)";
+    context.strokeStyle = "#ff9f43";
+    context.lineWidth = 2;
+    context.arc(cone.x, cone.y, cone.radius, 0, Math.PI * 2);
+    context.fill();
+    context.stroke();
+  });
+};
+
 const drawPowerUp = () => {
   if (!powerUp.active) return;
   context.beginPath();
@@ -370,11 +460,14 @@ const loop = (timestamp) => {
     kickBall(opponent, 5.6);
     updateBall();
     resolveCollisions();
+    resolveConeCollisions();
     checkGoals();
     updatePowerUp(timestamp);
+    updateCombo(0.016);
   }
 
   drawPitch();
+  drawCones();
   drawPlayer(player);
   drawPlayer(opponent);
   drawBall();
@@ -438,7 +531,14 @@ lengthSelect.addEventListener("change", (event) => {
   updateScoreboard();
 });
 
+conesButton.addEventListener("click", () => {
+  state.conesActive = !state.conesActive;
+  conesButton.textContent = state.conesActive ? "Disable Cones" : "Enable Cones";
+  addEvent(state.conesActive ? "Training cones set on the pitch." : "Training cones cleared.");
+});
+
 resetGame();
 shuffleWeather();
 updateCrowd();
+conesButton.textContent = state.conesActive ? "Disable Cones" : "Enable Cones";
 requestAnimationFrame(loop);

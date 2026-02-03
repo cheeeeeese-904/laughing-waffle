@@ -13,7 +13,11 @@ def test_index_includes_core_sections():
     assert "id=\"reset\"" in html
     assert "id=\"toggle\"" in html
     assert "id=\"shuffle\"" in html
+    assert "id=\"cones\"" in html
     assert "id=\"length\"" in html
+    assert "id=\"combo-bar\"" in html
+    assert "id=\"ticker-text\"" in html
+    assert "id=\"blue-shots\"" in html
 
 
 def test_assets_referenced_exist():
