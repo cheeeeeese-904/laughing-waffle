@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laughing Waffle Soccer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="game-header">
+        <div class="game-title">
+          <h1>Laughing Waffle Soccer</h1>
+          <p>First to 5 goals wins. Click replay to relive the last few seconds.</p>
+        </div>
+        <button id="replayButton" class="replay-button" type="button">Replay</button>
+      </header>
+      <section class="game-stage">
+        <canvas id="gameCanvas" width="900" height="500" aria-label="Soccer game"></canvas>
+        <div id="replayOverlay" class="replay-overlay" role="status" aria-live="polite">
+          Replay
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
