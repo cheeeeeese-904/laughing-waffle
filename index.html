@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Soccer Game</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: #f2f4f8;
+      }
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      canvas {
+        display: block;
+        border: 2px solid #1b1f24;
+        background: #0e7a3b;
+      }
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+      .controls button {
+        padding: 8px 14px;
+        border: none;
+        background: #1b5bd6;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .controls button.secondary {
+        background: #6b7280;
+      }
+      .payload {
+        width: 100%;
+        min-height: 80px;
+        resize: vertical;
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #c4c8d0;
+        font-family: "Courier New", monospace;
+        margin-top: 8px;
+      }
+      .status {
+        margin-top: 10px;
+        color: #2d3748;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Random Soccer Game</h1>
+      <div class="controls">
+        <button id="newMatch">New Match</button>
+        <button id="exportReplay">Export Replay</button>
+        <button id="importReplay" class="secondary">Import Replay</button>
+      </div>
+      <label for="replayPayload">Replay Payload</label>
+      <textarea
+        id="replayPayload"
+        class="payload"
+        placeholder="Paste replay payload here..."
+      ></textarea>
+      <p class="status" id="status"></p>
+      <canvas id="field" width="800" height="420"></canvas>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
