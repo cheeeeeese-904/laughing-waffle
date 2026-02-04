@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Laughing Waffle Soccer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="header">
+        <h1>Laughing Waffle Soccer</h1>
+        <p class="subtitle">Quick match controls with customizable mappings.</p>
+      </header>
+
+      <section class="scoreboard" aria-label="Scoreboard">
+        <div class="score">
+          <span class="team">Home</span>
+          <span id="home-score" class="points">0</span>
+        </div>
+        <div class="score">
+          <span class="team">Away</span>
+          <span id="away-score" class="points">0</span>
+        </div>
+      </section>
+
+      <section class="ticker" aria-label="Match ticker" role="status">
+        <p id="ticker-text">Kick off to start the action.</p>
+      </section>
+
+      <section class="controls" aria-label="Control buttons">
+        <button id="start-match" class="btn" aria-label="Start match">Start Match</button>
+        <button id="reset-match" class="btn secondary" aria-label="Reset match">Reset Match</button>
+      </section>
+
+      <section class="mapping" aria-label="Control mapping">
+        <h2>Control Mapping</h2>
+        <p class="helper">Select a key for each action. Changes are saved automatically.</p>
+        <div class="mapping-grid">
+          <label class="mapping-row">
+            <span class="mapping-label">Kick</span>
+            <select id="map-kick" data-action="kick"></select>
+          </label>
+          <label class="mapping-row">
+            <span class="mapping-label">Pass</span>
+            <select id="map-pass" data-action="pass"></select>
+          </label>
+          <label class="mapping-row">
+            <span class="mapping-label">Sprint</span>
+            <select id="map-sprint" data-action="sprint"></select>
+          </label>
+          <label class="mapping-row">
+            <span class="mapping-label">Defend</span>
+            <select id="map-defend" data-action="defend"></select>
+          </label>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
