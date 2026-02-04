@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soccer AI Coach Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Soccer AI Coach Demo</h1>
+    <div class="controls">
+      <label for="ai-style">AI Style</label>
+      <select id="ai-style">
+        <option value="auto">Auto</option>
+        <option value="pressing">Pressing</option>
+        <option value="counter">Counter</option>
+        <option value="possession">Possession</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <section class="scoreboard">
+      <div>Home <span id="home-score">0</span></div>
+      <div>Time <span id="time-remaining">90:00</span></div>
+      <div>Away <span id="away-score">0</span></div>
+    </section>
+
+    <div id="field">
+      <div id="ball"></div>
+    </div>
+    <p class="hint">Move your cursor over the field to reposition the ball.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
