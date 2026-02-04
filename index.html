@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laughing Waffle FC</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">Live Match Center</p>
+          <h1>Laughing Waffle FC vs. River Town</h1>
+        </div>
+        <div class="score">
+          <span>2</span>
+          <span class="score-divider">:</span>
+          <span>1</span>
+        </div>
+      </header>
+
+      <section class="panel-grid">
+        <article class="panel">
+          <h2>Match Pulse</h2>
+          <ul class="pulse-list">
+            <li>
+              <span>Expected goals</span>
+              <strong>1.9</strong>
+            </li>
+            <li>
+              <span>Pass accuracy</span>
+              <strong>83%</strong>
+            </li>
+            <li>
+              <span>Duels won</span>
+              <strong>24</strong>
+            </li>
+          </ul>
+        </article>
+
+        <article class="panel chart-panel">
+          <div class="panel-heading">
+            <h2>Momentum Charts</h2>
+            <p>Possession over time & shots on target.</p>
+          </div>
+
+          <div class="chart-grid">
+            <div class="chart-card">
+              <div class="chart-title">
+                <h3>Possession Over Time</h3>
+                <span class="chart-metric" id="possession-latest"></span>
+              </div>
+              <svg
+                id="possession-chart"
+                class="mini-chart"
+                viewBox="0 0 160 60"
+                role="img"
+                aria-label="Possession over time chart"
+              >
+                <path class="chart-area"></path>
+                <polyline class="chart-line"></polyline>
+              </svg>
+              <div class="chart-legend">
+                <span class="legend-swatch possession"></span>
+                <span>Laughing Waffle FC possession</span>
+              </div>
+            </div>
+
+            <div class="chart-card">
+              <div class="chart-title">
+                <h3>Shots on Target</h3>
+                <span class="chart-metric" id="shots-latest"></span>
+              </div>
+              <svg
+                id="shots-chart"
+                class="mini-chart"
+                viewBox="0 0 160 60"
+                role="img"
+                aria-label="Shots on target chart"
+              >
+                <path class="chart-area"></path>
+                <polyline class="chart-line"></polyline>
+              </svg>
+              <div class="chart-legend">
+                <span class="legend-swatch shots"></span>
+                <span>Total shots on target</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
