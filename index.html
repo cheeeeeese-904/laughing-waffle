@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soccer Challenge Arena</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>Soccer Challenge Arena</h1>
+      <p>Run drills, track time, and switch between match play and custom challenges.</p>
+    </header>
+
+    <main class="layout">
+      <section class="field-wrap">
+        <div id="field" aria-label="Training field">
+          <div class="cone" data-id="1"></div>
+          <div class="cone" data-id="2"></div>
+          <div class="cone" data-id="3"></div>
+          <div class="cone" data-id="4"></div>
+          <div class="target" data-id="1"></div>
+          <div class="target" data-id="2"></div>
+          <div class="target" data-id="3"></div>
+        </div>
+      </section>
+
+      <aside class="hud">
+        <div class="panel clock-panel">
+          <h2>Match Clock</h2>
+          <div id="match-clock" class="clock" aria-live="polite">00:00</div>
+          <div id="challenge-clock" class="clock hidden" aria-live="polite">01:00</div>
+        </div>
+
+        <div class="panel challenges-panel">
+          <h2>Challenges</h2>
+          <button class="challenge-btn" data-challenge="match">Standard Match</button>
+          <button class="challenge-btn" data-challenge="cone-slalom">Cone Slalom</button>
+          <button class="challenge-btn" data-challenge="precision-shots">Precision Shots</button>
+          <p class="panel-note">Pick a drill to reposition cones/targets and start the challenge timer.</p>
+        </div>
+      </aside>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
