@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laughing Waffle Soccer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div>
+        <h1>Laughing Waffle Soccer</h1>
+        <p>Pick a vibe and kick off a match.</p>
+      </div>
+      <div class="theme-picker">
+        <label for="theme-select">Theme</label>
+        <select id="theme-select" name="theme">
+          <option value="classic">Classic</option>
+          <option value="neon">Neon</option>
+          <option value="midnight">Midnight</option>
+        </select>
+      </div>
+    </header>
+
+    <main>
+      <section class="scoreboard">
+        <div>
+          <span class="label">Home</span>
+          <span class="score">2</span>
+        </div>
+        <div>
+          <span class="label">Away</span>
+          <span class="score">1</span>
+        </div>
+        <button class="cta">Start New Match</button>
+      </section>
+
+      <section class="pitch" aria-label="Soccer pitch">
+        <div class="center-circle"></div>
+        <div class="half-line"></div>
+        <div class="goal left"></div>
+        <div class="goal right"></div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
