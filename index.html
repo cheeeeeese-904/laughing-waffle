@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laughing Waffle Soccer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Laughing Waffle Soccer Tracker</h1>
+        <p>Track match stats and keep lifetime totals.</p>
+      </header>
+
+      <section class="panel">
+        <h2>Current Match</h2>
+        <div class="stats-grid">
+          <div>
+            <p class="label">Goals</p>
+            <p class="value" id="match-goals">0</p>
+          </div>
+          <div>
+            <p class="label">Shots</p>
+            <p class="value" id="match-shots">0</p>
+          </div>
+          <div>
+            <p class="label">Top Speed (mph)</p>
+            <p class="value" id="match-speed">0</p>
+          </div>
+        </div>
+        <div class="controls">
+          <button id="goal-btn">Add Goal</button>
+          <button id="shot-btn">Add Shot</button>
+          <label class="speed-input">
+            Update Top Speed
+            <input id="speed-input" type="number" min="0" step="0.1" placeholder="mph" />
+          </label>
+          <button id="end-match-btn" class="primary">End Match</button>
+        </div>
+      </section>
+
+      <section class="panel panel--highlight" aria-live="polite">
+        <h2>Lifetime Stats</h2>
+        <div class="stats-grid">
+          <div>
+            <p class="label">Total Goals</p>
+            <p class="value" id="lifetime-goals">0</p>
+          </div>
+          <div>
+            <p class="label">Total Shots</p>
+            <p class="value" id="lifetime-shots">0</p>
+          </div>
+          <div>
+            <p class="label">Top Speed (mph)</p>
+            <p class="value" id="lifetime-speed">0</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
