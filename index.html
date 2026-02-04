@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laughing Waffle Soccer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="game-panel card">
+        <h1>Laughing Waffle Soccer</h1>
+        <p>Collect boosts, score goals, and build your legend.</p>
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-label">Speed</span>
+            <span id="speed-value" class="stat-value">1.0x</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Stamina Regen</span>
+            <span id="stamina-value" class="stat-value">1.0x</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Power-up Duration</span>
+            <span id="powerup-value" class="stat-value">1.0x</span>
+          </div>
+        </div>
+      </section>
+
+      <aside class="skill-tree card" aria-labelledby="skill-tree-title">
+        <h2 id="skill-tree-title">Skill Tree</h2>
+        <p>Invest points to boost your core abilities.</p>
+        <div class="skill-group">
+          <h3>Speed</h3>
+          <div class="button-row">
+            <button class="skill-button" data-skill="speed" data-tier="1">
+              +5% Sprint
+            </button>
+            <button class="skill-button" data-skill="speed" data-tier="2">
+              +10% Sprint
+            </button>
+            <button class="skill-button" data-skill="speed" data-tier="3">
+              +20% Sprint
+            </button>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Stamina Regen</h3>
+          <div class="button-row">
+            <button class="skill-button" data-skill="stamina" data-tier="1">
+              +5% Regen
+            </button>
+            <button class="skill-button" data-skill="stamina" data-tier="2">
+              +10% Regen
+            </button>
+            <button class="skill-button" data-skill="stamina" data-tier="3">
+              +20% Regen
+            </button>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Power-up Duration</h3>
+          <div class="button-row">
+            <button class="skill-button" data-skill="powerup" data-tier="1">
+              +5% Duration
+            </button>
+            <button class="skill-button" data-skill="powerup" data-tier="2">
+              +10% Duration
+            </button>
+            <button class="skill-button" data-skill="powerup" data-tier="3">
+              +20% Duration
+            </button>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
