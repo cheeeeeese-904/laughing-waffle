@@ -1,0 +1,140 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  background: #f7f7fb;
+  color: #1b1b2f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 32px;
+}
+
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 24px 60px rgba(15, 16, 38, 0.12);
+  display: grid;
+  gap: 28px;
+}
+
+.app__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.app__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 0.7rem;
+  color: #70708a;
+  margin: 0;
+}
+
+.app__subhead {
+  margin: 8px 0 0;
+  color: #4d4d6b;
+  max-width: 520px;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  color: #2f2f46;
+}
+
+.toggle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.toggle__pill {
+  width: 48px;
+  height: 26px;
+  background: #d7d7e5;
+  border-radius: 999px;
+  position: relative;
+  transition: background 0.2s ease;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.toggle__pill::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.toggle input:checked + .toggle__pill {
+  background: #4b6cff;
+}
+
+.toggle input:checked + .toggle__pill::after {
+  transform: translateX(22px);
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.action {
+  border: none;
+  background: #f3f4ff;
+  color: #31314d;
+  padding: 16px 20px;
+  border-radius: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(75, 108, 255, 0.18);
+}
+
+.feed {
+  background: #f9f9fd;
+  border-radius: 18px;
+  padding: 20px 24px;
+}
+
+.feed h2 {
+  margin-top: 0;
+}
+
+.feed__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.feed__list li {
+  background: #ffffff;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid #ececf5;
+  box-shadow: 0 8px 16px rgba(15, 16, 38, 0.05);
+}

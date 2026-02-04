@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Laughing Waffle Soccer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <div>
+          <p class="app__eyebrow">Match Day</p>
+          <h1>Laughing Waffle Soccer</h1>
+          <p class="app__subhead">
+            Trigger key moments below to see the event feed with optional commentary.
+          </p>
+        </div>
+        <label class="toggle" for="commentary-toggle">
+          <span>Commentary</span>
+          <input type="checkbox" id="commentary-toggle" checked />
+          <span class="toggle__pill" aria-hidden="true"></span>
+        </label>
+      </header>
+
+      <section class="actions" aria-label="Match events">
+        <button type="button" class="action" data-event="goal">Goal!</button>
+        <button type="button" class="action" data-event="coneRicochet">Cone Ricochet</button>
+        <button type="button" class="action" data-event="powerUpPickup">Power-up Pickup</button>
+      </section>
+
+      <section class="feed" aria-live="polite">
+        <h2>Event Feed</h2>
+        <ul id="event-feed" class="feed__list"></ul>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
