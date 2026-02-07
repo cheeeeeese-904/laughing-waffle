@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laughing Waffle Soccer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Laughing Waffle Soccer Tracker</h1>
+        <p>Track match performance and keep lifetime totals saved between visits.</p>
+      </header>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>Current Match</h2>
+          <p class="panel-subtext">Capture in-match events, then end the match to add them to lifetime totals.</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <p class="label">Goals</p>
+            <p class="value" id="match-goals">0</p>
+          </div>
+          <div class="stat-card">
+            <p class="label">Shots</p>
+            <p class="value" id="match-shots">0</p>
+          </div>
+          <div class="stat-card">
+            <p class="label">Top Speed (mph)</p>
+            <p class="value" id="match-speed">0.0</p>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="goal-btn">Add Goal</button>
+          <button id="shot-btn">Add Shot</button>
+          <label class="speed-input" for="speed-input">
+            Update Top Speed
+            <input id="speed-input" type="number" min="0" step="0.1" placeholder="mph" />
+          </label>
+          <button id="end-match-btn" class="primary">End Match</button>
+        </div>
+
+        <p class="status" id="match-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="panel panel--highlight" aria-live="polite">
+        <div class="panel-heading">
+          <h2>Lifetime Stats</h2>
+          <p class="panel-subtext">These totals are persisted with localStorage.</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <p class="label">Total Goals</p>
+            <p class="value" id="lifetime-goals">0</p>
+          </div>
+          <div class="stat-card">
+            <p class="label">Total Shots</p>
+            <p class="value" id="lifetime-shots">0</p>
+          </div>
+          <div class="stat-card">
+            <p class="label">Top Speed (mph)</p>
+            <p class="value" id="lifetime-speed">0.0</p>
+          </div>
+          <div class="stat-card">
+            <p class="label">Matches Logged</p>
+            <p class="value" id="lifetime-matches">0</p>
+          </div>
+        </div>
+
+        <div class="lifetime-meta">
+          <p id="lifetime-updated">Last updated: never</p>
+          <button id="reset-lifetime-btn" class="danger">Reset Lifetime Stats</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
